@@ -1,4 +1,4 @@
-﻿
+﻿@model BankForm.Models.BankAccount
 @{
     ViewBag.Title = "Index";
 }
@@ -7,22 +7,26 @@
 <div class="container">
     @using (Html.BeginForm("Save", "Form", FormMethod.Post))
     {
-        <div class="form-group">
-            <label>BSB</label>
-            <input type="text" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Account Number</label>
-            <input type="text" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Account Name</label>
-            <input type="text" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Reference</label>
-            <input type="text" class="form-control" />
-        </div>
+    <div class="form-group">
+        <label>BSB</label>
+        @Html.TextBoxFor(model => model.BSB, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.BSB)
+    </div>
+    <div class="form-group">
+        <label>Account Number</label>
+        @Html.TextBoxFor(model => model.AccountNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.AccountNumber)
+    </div>
+    <div class="form-group">
+        <label>Account Name</label>
+        @Html.TextBoxFor(model => model.AccountName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.AccountName)
+    </div>
+    <div class="form-group">
+        <label>Reference</label>
+        @Html.TextBoxFor(model => model.Reference, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Reference)
+    </div>
         <button type="submit" class="btn btn-default">Submit</button>
     }
 </div>
